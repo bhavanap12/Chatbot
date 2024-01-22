@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link href="{% static 'css/stylesheet.css' %}" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<h1> {{title}}</h1>
+<div>
+    <div id="chatbot">
+        <p class="'botText"><span>Welcome to Chatbot App!</span></p>
+    </div>
+    <div id="userInput">
+        <input type="text" id="textInput" name="userMessage" placeholder="Type your Message"/>
+        <input type="submit" value="Send" id="buttonInput" /> 
+    </div>
+</div>
+
+<script>
+
+function getUserResponse(){
+    var userText = $("#textInput").val();
+    var userHTML = "<p class='userText'>User: <span>"+ userText +"</span></p>";
+    $('#textInput').val("");
+
+    $('#chatbot').append(userHTML);
+
+    $.get('/getResponse', {userMessage:userText}).done(function(data){
+        var returnMessage = "<p class='botText'>Chatbot: <span>"+ data +"</span></p>";
+        $('#chatbot').append(returnMessage);
+    })
+}
+
+$('#buttonInput').click(function(){
+    getUserResponse();
+})
+</script>
+</body>
+</html>
