@@ -2,13 +2,14 @@
 
 ## Overview
 
-This repository contains the source code for a simple chatbot built using Chatbot library. The chatbot is designed to have a conversation and give automated replies to the user input.
+This repository contains the source code for a simple chatbot built using Chatterbot library. The chatbot is designed to have a conversation and give automated replies to the user input.
 
 ## Technologies and Languages Used
 
 * Python
 * Django
 * Pandas
+* Chatterbot
 * Jupyter Notebook
 * Scikit-Learn
 * HTML
@@ -22,7 +23,7 @@ These instructions will help you set up and run the chatbot locally.
 
 - Python
 - Django
-- Chatbot
+- Chatterbot
 
 ### Usage
 
